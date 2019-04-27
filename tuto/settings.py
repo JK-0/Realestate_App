@@ -34,12 +34,15 @@ INSTALLED_APPS = [
     'listings.apps.ListingsConfig',
     'realtors.apps.RealtorsConfig',
     'pages.apps.PagesConfig',
+    'accounts.apps.AccountsConfig',
+    'contacts.apps.ContactsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -83,12 +86,26 @@ WSGI_APPLICATION = 'tuto.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'NAME': 'tuto',
+#         'ENGINE': 'django.db.backends.mysql',
+#         'USER': 'root',
+#         'PASSWORD': 'mysql',
+#         'OPTIONS': {
+#           'autocommit': True,
+#         },
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'NAME': 'tuto',
+        'NAME': 'realestate',
         'ENGINE': 'django.db.backends.mysql',
-        'USER': 'root',
-        'PASSWORD': 'mysql',
+        'USER': 'jkotadiya',
+        'PASSWORD': 'Wtm24LBr5k7cGRa',
+        'HOST': 'real-estate.cr4y1pkghjp9.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
         'OPTIONS': {
           'autocommit': True,
         },
@@ -136,3 +153,19 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'tuto/static')
 ]
+# Media Folder Settings
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+# Messages
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
+
+# Email config
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True
